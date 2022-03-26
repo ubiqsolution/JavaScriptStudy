@@ -448,7 +448,196 @@
 // }
 
 // # 함수(function)
+// *함수를 만드는 목적은 중복을 줄여주는 것이다.
 // 함수는 코드를 묶어서 재사용 가능한 코드를 만들 수 있다.
 // console, alert, confirm 내장함수
 
-console.log('함수를 배울 차례입니다.');
+// 함수(function) 정의
+
+// function(함수) sayHello(함수명)(name)(매개변수&인수){
+// function sayHello(name){
+//     console.log(`Hello, ${name}`); // ` `(물결 표시 밑 ` 그레이브 키) 사용하면 문자열 안에 변수를 사용할 수 있다.
+// }
+
+// sayHello('Mike');
+
+// 함수 작성
+
+// function showError(){
+//     alert('에러가 발생했습니다. 새로고침 해주세요.'); // 에러 문구를 수정해 주세요. 라고 요청하면 10,000 군데를 수정하는게 아니라 이부분만 수정하면됨.
+// }
+
+// showError();
+
+// 매개변수가 있는 함수
+
+// function sayHello(name){
+//     const msg = `Hello, ${name}`;
+//     console.log(msg);
+// }
+
+// sayHello('Mike');
+// sayHello('Tom');
+// sayHello('Jane');
+
+// 만약 매개변수가 없다면?
+
+// let msg = `Hello`; // 전역 변수 (global variable)
+// console.log('함수 호출 전');
+// console.log(msg);
+
+// function sayHello(name){
+//     // console.log(name); // undefined
+//     // let msg = `Hello`; // 변수가 바뀌면 let을 사용하는게 좋다. // msg 함수내에서 사용하는 지역변수
+//     if(name){
+//         // msg = `Hello, ${name}`; // 방법 1
+//         // msg += ', ' + name; // 방법 2
+//         msg += `, ${name}`; // 방법 3
+//     }
+// console.log('함수 내부');
+//     // 지역 변수 (local variable)
+//     console.log(msg);
+// }
+
+// // sayHello();
+// sayHello('Mike');
+// console.log('함수 호출 후');
+// console.log(msg); // msg는 함수 내에서만 사용할 수 있다. 전역변수로 사용할 수 없다.
+
+// 전역 변수와 지역 변수
+
+// let msg = "welcome";
+// console.log(msg);
+
+// function sayHello(name){
+//     let msg = "Hello";
+//     console.log(msg + ' ' + name);
+// }
+
+// sayHello('Mike');
+// console.log(msg);
+
+// 함수에 특화된 지역 변수 사용을 지향하는 것이 좋다.(전역 변수가 많아 지면 관리가 힘들다.)
+
+// let name = "Mike";
+
+// function sayHello(name){ // 매개변수로 가는 값은 복사된 후 지역 변수에 저장된다.
+//     console.log(name);
+// }
+
+// sayHello();
+// sayHello('Jane');
+
+// OR
+
+// function sayHello(name){
+//     let newName = name || 'friend'; // 매개변수가 없으면 'friend'를 사용한다.
+//     let msg = `Hello, ${newName}`;
+//     console.log(msg);
+// }
+
+// sayHello();
+// sayHello('Jane');
+
+// default value
+
+// function sayHello(name = 'friend'){ // name 에 default value를 준다.
+//     let msg = `Hello, ${name}`;
+//     console.log(msg);
+// }
+
+// sayHello();
+// sayHello('Jane');
+
+// return 으로 값 반환
+
+// function add(num1, num2){
+//     return num1 + num2;
+// }
+
+// const result = add(2, 3);
+// console.log(result);
+
+// return 값을 사용하지 않는 함수
+
+// function showError(){
+//     alert('에러가 발생했습니다.');
+//     return; // 함수를 종료하는 목적으로도 사용됨.
+//     alert('이 코드는 절대 실행되지 않습니다.');
+// }
+
+// const result = showError();
+// console.log(result);
+
+// 함수(function)
+// - 한번에 한 작업에 집중
+// - 읽기 쉽고 어떤 동작인지 알 수 있게 네이밍
+// showError // 에러를 보여줌
+// getName // 이름을 얻어옴
+// getAge // 나이를 얻어옴
+// getGender // 성별을 얻어옴
+// createUserData // 유저 데이터를 생성함
+// checkLogin // 로그인 여부를 체크
+
+// # 함수 선언문 vs 함수 표현식
+
+// function sayHello(){ // 함수 선언문 - 어디서든 호출 할수 있다. 
+//     console.log('Hello');
+// }
+
+// sayHello(); // 함수 전에 실행을 해도 된다. 함수 선언문(자바스크립트) 호이스팅(hoisting) - 사용 가능 범위.
+
+// let sayHello = function(){ // 함수 표현식 - 코드에 도달하면 생성된다.
+//     console.log('Hello');
+// }
+
+// sayHello();
+
+// 그래서 뭐가 더 좋을까요? 함수 선언문이 더 좋다.
+// 함수 표현식을 사용하면 코드가 더 짧아진다.
+
+// # 화살표 함수
+
+// let add = function(num1, num2){
+//     return num1 + num2;
+// }
+
+// let add = (num1, num2) => num1 + num2; // 화살표 함수
+// let sayHello = name => `Hello, ${name}`; // 화살표 함수
+
+// let showError = () => alert('에러가 발생했습니다.'); // 화살표 함수
+// showError();
+
+// const sayHello = (name) => { // 화살표 함수
+//     let msg = `Hello, ${name}`;
+//     console.log(msg);
+// }
+
+// sayHello('Mike');
+
+// const add = (num1, num2) => {
+//     const result = num1 + num2;
+//     return result;
+// };
+
+// const add = (num1, num2) => num1 + num2; // 화살표 함수 - return 이 한줄일 경우 한줄로 줄일 수 있다.
+// const result = add(2, 3);
+
+// console.log(result);
+
+// *함수 표현식 보다는 함수 선언문이 자유롭다.
+// 화살표 함수는 ES6 이후에 추가되었다.
+
+// # 객체(object)
+
+// Superman
+// name : clark
+// age : 33
+
+const superman = {
+    name: 'Clark',
+    age: 33,
+}
+
+// 12 - 객체(object) 스터디 할 차례입니다.
+// 내일도 열심히 하자!!
