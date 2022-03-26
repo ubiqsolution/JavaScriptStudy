@@ -318,13 +318,13 @@
 // 우선 순위 AND -> OR -> NOT
 // 남자이고, 이름이 Mike 이거나 성인이면 통과
 
-// const gender = 'F';
+//const gender = 'F';
 // const gender = 'M';
 // const name = 'Jane';
 // const isAdult = true;
 
-// if(gender === 'M' && name === 'Mike' || isAdult){
-// if((gender === 'M' && name === 'Mike') || isAdult){ // 위와 동일한 내용임.
+// // if(gender === 'M' && name === 'Mike' || isAdult){
+// // if((gender === 'M' && name === 'Mike') || isAdult){ // 위와 동일한 내용임.
 // if(gender === 'M' && (name === 'Mike' || isAdult)){ // 우선순위 () 로 변경 
 //     console.log('통과')
 // } else {
@@ -332,6 +332,123 @@
 // }
 
 // # 반복문(for, while, do while)
-// 8. for 반복문
+// for 동일한 작업을 여러번 반복
+// let i = 0 초기값, i < 10 조건(false가 되면 멈춤), i++ 증가식(코드 실행 후 작업)
+// for (let i = 0; i < 10; i++){ 
+    // 반복할 코드
+// }
+// 위 for문 실행 순서
+// i = 0
+// i 가 10보다 작으므로
+// 코드실행
+// i 값 1 증가
 
-console.log('오늘은 너무 피곤합니다. 비도 오고...');
+// i = 1
+// i 가 10보다 작으므로
+// 코드실행
+// i 값 1 증가
+
+// (반복...)
+
+// 1부터 10까지 로그
+
+// for (let i = 0; i < 10; i++){
+//     console.log(i + 1); // 1부터 10까지 로그
+// }
+
+// # while
+
+// let i = 0;
+
+// while(i < 10){
+//    console.log(i);
+//    i++;
+// }
+
+// # do while
+// let i = 0;
+
+// do{
+//     // 코드실행
+//     i++;
+// } while(i < 10);
+
+// # forEach
+// const arr = [1, 2, 3, 4, 5];
+// arr.forEach(function(item, index){
+//     console.log(item, index);
+// });
+
+// # break, continue
+// break 특정 조건이 되었을때 멈춤
+
+// while(true){
+//     let answer = confirm('계속 할까요?');
+//     if (!answer){
+//         break;
+//     }
+// }
+
+// continue 특정 조건이 되었을때 다음 코드로 넘어가기
+// 짝수만
+
+// for(let i = 0; i < 10; i++){
+//     if(i % 2 ){
+//         continue;    
+//     }
+//     console.log(i)
+// }
+
+// 명확한 횟수 for문 사용
+// 그외 while문 사용
+
+// # switch == if else
+// switch(평가){
+//     case A:
+//     // A일때 코드
+//     case B:
+//     // B일때 코드
+//     ...
+// }
+
+// if(평가 == A){
+//     // A일때 코드
+// } else if(평가 == B){
+//     // B일때 코드
+// }
+
+// 사과 : 100원
+// 바나나 : 200원
+// 키위 : 300원
+// 멜론 : 500원
+// 수박 : 500원
+// 사고 싶은 과일을 물어보고 가격 알려주기 switch 문 예제
+
+// let fruit = prompt('무슨 과일을 사고 싶나요?');
+
+// switch(fruit){
+//     case '사과':
+//         console.log('100원');
+//         break;
+//     case '바나나':
+//         console.log('200원');
+//         break;
+//     case '키위':
+//         console.log('300원');
+//         break;
+//     // case '멜론':
+//     //     console.log('500원');
+//     //     break;
+//     case '멜론': // 위와 동일한 코드
+//     case '수박':
+//         console.log('500원');
+//         break;
+//     default :
+//         console.log('그런 과일은 없습니다.');
+// }
+
+// # 함수(function)
+// 함수는 코드를 묶어서 재사용 가능한 코드를 만들 수 있다.
+// console, alert, confirm 내장함수
+
+console.log('함수를 배울 차례입니다.');
