@@ -634,11 +634,129 @@
 // name : clark
 // age : 33
 
-const superman = {
-    name: 'Clark',
-    age: 33,
+// const superman = {
+//     name: 'Clark', // key : value
+//     age: 33,
+// }
+
+// console.log(superman);
+// console.log(superman.name);
+
+// object - 접근, 추가, 삭제
+
+// 접근
+// superman.name // 'Clark'
+// superman['age'] // 33
+
+// 추가
+// superman.gender = 'male';
+// superman.['hairColor'] = 'black';
+
+// 삭제
+// delete superman.hairColor;
+
+// object - 단축 프로퍼티
+
+// const name = 'clark';
+// const age = 33;
+
+// const superman = {
+//    name : name,
+//    age : age,
+//    gender : 'male',
+// }
+
+// 위 코드는 아래 같이 쓸수 있다.
+// const superman = {
+//    name,
+//    age,
+//    gender : 'male',
+// }
+
+// object - 프로퍼티 존재 여부 확인
+
+// superman.birthDay;
+// //undefined
+
+// 'birthDay in superman;
+// // false
+
+// 'age' in superman;
+// // true
+
+// for ... in 반복문
+
+// for(let key in superman){ // 객체 순회하며 프로퍼티를 얻어온다.
+//     console.log(key);
+//     console.log(superman[key]);
+// }
+
+// 객체
+
+// const superman = {
+//     name: 'Clark', // key : value
+//     age: 33,
+// }
+
+// superman.hairColor = 'black'; // 객체 추가
+// superman['habby'] = 'football'; // 객체 추가
+
+// delete superman.age; // 객체 삭제
+// superman.age = 33; // 객체 삭제된 객체 추가
+// console.log(superman);
+
+// console.log(superman.name);
+// console.log(superman['age']);
+
+// 객체를 함수로 만들기
+
+// function makeObject(name, age){
+//     return {
+//         name, // name : name
+//         age,  // age : age
+//         hobby : 'football',
+//     }
+// }
+
+// const Mike = makeObject('Mike', 30);
+// console.log(Mike);
+
+// console.log('age' in Mike);
+// console.log('birthday' in Mike);
+
+// 객체 in
+
+// function isAdult(user) {
+//     if (!('age' in user) || // user 에 age 프로퍼티가 없거나
+//         user.age < 20) { // age 20살 미만이거나
+//       return false;
+//     }
+//     return true;
+// }
+
+// const Mike = {
+//     name : "Mike",
+//     age : 30,
+// };
+
+// const Jane = {
+//     name : "Jane",
+// };
+
+// console.log(isAdult(Mike)); // true
+// console.log(isAdult(Jane)); // true 가 아니라 false 나와야 함.
+
+
+// 객체 for ... in
+
+const Mike = {
+    name : "Mike",
+    age : 30,
+};
+
+for(let x in Mike){ // let x 를 사용해야 한다. 그냥 x 만 사용시 에러가 난다.
+    console.log(Mike[x]); // Mike['name'], Mike['age']
 }
 
-// 12 - 객체(object) 스터디 할 차례입니다.
-// 내일도 열심히 하자!!
-// VSCode Git 안되면 팀프로젝트 형식으로 진행!
+// # 객체(object) - method, this
+// 13. 진행할 차례입니다.
