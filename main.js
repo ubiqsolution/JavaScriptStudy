@@ -749,14 +749,153 @@
 
 // 객체 for ... in
 
-const Mike = {
-    name : "Mike",
-    age : 30,
-};
+// const Mike = {
+//     name : "Mike",
+//     age : 30,
+// };
 
-for(let x in Mike){ // let x 를 사용해야 한다. 그냥 x 만 사용시 에러가 난다.
-    console.log(Mike[x]); // Mike['name'], Mike['age']
-}
+// for(let x in Mike){ // let x 를 사용해야 한다. 그냥 x 만 사용시 에러가 난다.
+//     console.log(Mike[x]); // Mike['name'], Mike['age']
+// }
 
 // # 객체(object) - method, this
-// 13. 진행할 차례입니다.
+// method : 객체 프로퍼티로 할당 된 함수
+
+// const superman = {
+//     name : "clark",
+//     age : 33,
+//     // fly : function(){ // superman 객체에 method
+//     fly(){
+//         console.log("날아갑니다.");
+//     }
+// }
+
+// superman.fly();
+
+// object - this
+
+// const user = {
+//     name : "Mike",
+//     sayHello : function() {
+//         console.log(`Hello, I'm ${this.name}`); // $ 구문 포함시 그레이브키 `` 사용!
+//     }
+// }
+
+// user.sayHello(); // Hello, I'm Mike
+
+// let boy = {
+//     name : 'Mike',
+//     // sayHello, // 강의 내용으로 소스 적용시 에러 발생됨. 함수 object 안으로 이동함.
+//     sayHello : function () {
+//         console.log(`Hello, I'm ${this.name}`);
+//     }
+// }
+
+// let girl = {
+//     name : 'Jane',
+//     // sayHello,
+//     sayHello : function () {
+//         console.log(`Hello, I'm ${this.name}`);
+//     }
+// }
+
+// sayHello : function () { // object 밖에 함수를 두면 에러 발생됨.
+//     console.log(`Hello, I'm ${this.name}`);
+// }
+
+// boy.sayHello();
+// girl.sayHello();
+
+// method
+
+// let boy = {
+//     name : 'Mike',
+//     showName : function () {
+//         // console.log(boy.name)
+//         console.log(this.name) // boy = null 에러 발생시 this로 수정. 
+//     }
+// };
+
+// // boy.showName();
+
+// let man = boy;
+// boy = null; // name error 발생
+
+// // man.name = "Tom"
+
+// // console.log(boy.name);
+
+// man.showName();
+
+// let boy = {
+//     name : 'Mike',
+//     showThis : function () { // 객체 내 method
+//     // showThis : () => { // 객체에 method 작성시에는 화살표함수를 사용을 지양하는게 좋다. 전역 객체를 가르킴.
+//         console.log(this); 
+//     }
+// };
+
+// boy.showThis();
+
+// 객체에 method 작성시에는 화살표함수를 사용을 지양하는게 좋다. 전역 객체를 가르킴.
+
+// # 배열(Array) : 순서가 있는 리스트
+
+// let students = ['철수', '영희', '민철']; // index : 0, 1, 2
+
+// console.log(students[0]); // 철수
+// console.log(students[1]); // 영희
+// console.log(students[2]); // 민철
+
+// students[0] = '길동'; // index : 0 에 값을 변경
+
+// console.log(students[0]); // 길동
+
+// 배열의 특징: 배열은 문자 뿐만 아니라, 숫자, 객체, 함수 등도 포함할 수 있음.
+
+// length : 배열의 길이
+// console.log(students.length);
+
+// push() : 배열의 마지막에 값을 추가
+
+// let days = ['월', '화', '수'];
+// console.log(days)
+
+// days.push('목');
+// console.log(days); // ['월', '화', '수', '목']
+
+// pop() : 배열의 마지막 값을 삭제
+
+// let days = ['월', '화', '수'];
+// console.log(days)
+
+// days.pop();
+// console.log(days); // ['월', '화']
+
+// shift, unshift() 배열 앞에 제거/추가
+// 추가
+// let days = ['월', '화', '수'];
+// days.unshift('금', '토', '일');
+// console.log(days); // ['금', '토', '일', '월', '화', '수']
+
+// // 제거
+// days.shift();
+// console.log(days);
+
+// 반복문 : for
+// let days = ['월', '화', '수'];
+// for(let index = 0; index < days.length; index++) {
+//     console.log(days[index]);
+// }
+
+// 반복문 : for ... of 배열 순회는 for ... of
+let days = ['월', '화', '수'];
+
+days.push('목', '금', '토');
+days.unshift('일');
+
+for(let day of days) { // 변수 day 는 아무거나 사용 가능 예) x
+    console.log(day);
+}
+
+// 배열 여러 함수 있다.
